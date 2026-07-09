@@ -1,0 +1,320 @@
+{
+  "name": "AI Email Warm-Up & Deliverability Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "=0 0 9 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1152,
+        -448
+      ],
+      "id": "7dd63491-ed1e-481b-ba4b-98fb8c859428",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const warmupAccounts = [\n  // Gmail (10)\n  \n];\n\nconst senders = [\n  { name: \"Zakaria\", email: \"test@test.com\" },\n  { name: \"Zakaria\", email: \"test@test.com\" }\n];\n\nconst items = [];\nfor (const acc of warmupAccounts) {\n  for (const sender of senders) {\n    items.push({\n      json: {\n        to: acc,\n        from: sender.email,\n        fromName: sender.name\n      }\n    });\n  }\n}\n\n// Shuffle for human-like random order\nfor (let i = items.length - 1; i > 0; i--) {\n  const j = Math.floor(Math.random() * (i + 1));\n  [items[i], items[j]] = [items[j], items[i]];\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        -448
+      ],
+      "id": "33467c9f-7119-47ff-a027-c410b188ba5b",
+      "name": "Generate Email Templates"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 18) + 2 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        496,
+        -432
+      ],
+      "id": "c11c3842-b1c5-4428-bd81-069698ff8b6e",
+      "name": "Delay Between Emails",
+      "webhookId": "1c95c88f-34c9-42d7-97e3-e0f64bf0d20c"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"meta/llama-3.1-70b-instruct\",\n  \"max_tokens\": 200,\n  \"temperature\": 0.9,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Write a very short casual friendly email between two small business owners in Morocco/North Africa who know each other. They are both exploring AI tools to save time and grow their business. Pick ONE random angle from these: saving time on admin tasks, automating customer replies, using AI for social media, reducing hiring costs with automation, AI for invoicing/accounting, chatbots for e-commerce, or scheduling automation. No sales language, sounds like a real person texting a friend. 2-3 sentences max. Every email must be completely unique - vary the angle, tone, and wording each time.\\n\\nCRITICAL: Your response must be ONLY valid JSON with no markdown, no backticks, no explanation. Output exactly:\\n{\\\"subject\\\":\\\"...\\\",\\\"body\\\":\\\"...\\\"}\\n\\nIMPORTANT: End the body with this exact line on a new line: \\\"If this isn't relevant, reply 'unsubscribe' and I won't contact you again.\\\"\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -464,
+        -448
+      ],
+      "id": "2817e6f0-3fa5-4807-ab47-acdc2508a150",
+      "name": "Generate AI Email",
+      "retryOnFail": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hvqEJzAoY7VeF6uA",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "try {\n  const aiResponse = JSON.parse($json.choices[0].message.content);\n\n  return [{\n    json: {\n      ...$('Loop Over Items').item.json,\n      subject: aiResponse.subject || \"No subject\",\n      body: aiResponse.body || \"No body\"\n    }\n  }];\n\n} catch (e) {\n\n  return [{\n    json: {\n      ...$('Loop Over Items').item.json,\n      subject: \"Hi there\",\n      body: $json.choices[0].message.content +\n        \"\\n\\nIf this isn't relevant, reply 'unsubscribe' and I won't contact you again.\"\n    }\n  }];\n\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -272,
+        -448
+      ],
+      "id": "4d19ef0e-5682-421b-a123-f5965b1b4f15",
+      "name": "Parse AI Email"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "369d72a4-a9c0-43e3-91fc-1b87d6e0fd9c",
+              "leftValue": "={{ $json.from }}",
+              "rightValue": "zaki@test.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -64,
+        -448
+      ],
+      "id": "50c12ffc-bf8f-4e5e-ac5c-17cb16c629d7",
+      "name": "Which Sender?"
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $json.from }}",
+        "toEmail": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $json.body }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        192,
+        -592
+      ],
+      "id": "8445ac90-04f1-48b8-a892-84f3e470d2cd",
+      "name": " Send Warmup Email - zaki@",
+      "webhookId": "84977cb6-d45e-4c61-9c80-16c5b473c13f",
+      "credentials": {
+        "smtp": {
+          "id": "KDMUDWKgfqzRFYee",
+          "name": "zaki@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $json.from }}",
+        "toEmail": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $json.body }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        176,
+        -272
+      ],
+      "id": "d3dc5e03-0eaa-4a52-b2bc-5157cb758254",
+      "name": "Send Warmup Email - zakaria@",
+      "webhookId": "84977cb6-d45e-4c61-9c80-16c5b473c13f",
+      "credentials": {
+        "smtp": {
+          "id": "xrt8BhiU1cAGoBfS",
+          "name": "zakaria@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -704,
+        -448
+      ],
+      "id": "ca5e13c5-b4c5-404c-93d3-f270ed42ef52",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Generate Email Templates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Email Templates": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay Between Emails": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate AI Email": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Email": {
+      "main": [
+        [
+          {
+            "node": "Which Sender?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Which Sender?": {
+      "main": [
+        [
+          {
+            "node": " Send Warmup Email - zaki@",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Warmup Email - zakaria@",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Send Warmup Email - zaki@": {
+      "main": [
+        [
+          {
+            "node": "Delay Between Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Warmup Email - zakaria@": {
+      "main": [
+        [
+          {
+            "node": "Delay Between Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Generate AI Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Africa/Casablanca",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "5f6d8ab4-c711-4895-9c25-f7c2c41211ec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d78d8971f1a7b3a8ab6daaf80298483a6739908af40a871d49a0b6074e1d2fd2"
+  },
+  "id": "uIT9QFYW0NXKlyjt",
+  "tags": []
+}
