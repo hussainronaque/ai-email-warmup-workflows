@@ -1,0 +1,829 @@
+{
+  "name": "Auto Reply v3 - Merged",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATZiZmYAZC0zZTYyLWQ3NjMtMDACLTAwCgAuAAADgDxr2gLWtEyhk0b5CCY1AgEAjPPCuhRvFEWFQGrjrYV5BwAAAgEMAAAA",
+            "AQMkADAwATZiZmYAZC0zZTYyLWQ3NjMtMDACLTAwCgAuAAADgDxr2gLWtEyhk0b5CCY1AgEAjPPCuhRvFEWFQGrjrYV5BwAAAgEUAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1968,
+        -272
+      ],
+      "id": "284a417c-d1c0-4021-a8c6-649c44a63376",
+      "name": "IMAP - wenlullpoldizhj83",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "KcLJGknmTLi2bFhN",
+          "name": "IMAP - wenlullpoldizhj83"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATY0MDABLTI1Y2YtOTFlOS0wMAItMDAKAC4AAAOnYVXu7gDHiEqJ-2F00say5wEAdjlqvOhBmUODnb2oXtvFDgAAAgEMAAAA",
+            "AQMkADAwATY0MDABLTI1Y2YtOTFlOS0wMAItMDAKAC4AAAOnYVXu7gDHiEqJ-2F00say5wEAdjlqvOhBmUODnb2oXtvFDgAAAgETAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1760,
+        -160
+      ],
+      "id": "1c1a4416-3308-4d7b-bc8a-4ea06bd18140",
+      "name": "IMAP - teremiliravi7",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "mEIIhyYijWiz4pzT",
+          "name": "teremiliravi7"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATM3ZmYAZS00YjJkLWNiOWQtMDACLTAwCgAuAAADlz7z_irVDEGUUI731WPCegEAk-2U6xTErU6Mjo_a-ccnrQAAAgEMAAAA",
+            "AQMkADAwATM3ZmYAZS00YjJkLWNiOWQtMDACLTAwCgAuAAADlz7z_irVDEGUUI731WPCegEAk-2U6xTErU6Mjo_a-ccnrQAAAgEbAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1968,
+        -80
+      ],
+      "id": "c9bf232c-54cf-4c96-bbaa-71fe9e7d366c",
+      "name": "IMAP - venoshhjolney0",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "eHRPdLO1iEMy3RfQ",
+          "name": "venoshhjolney0io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "maxResults": 1,
+        "filters": {
+          "includeSpamTrash": true,
+          "labelIds": [
+            "Label_2506618084779540573"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -1792,
+        -784
+      ],
+      "id": "9c8adaa6-9654-43ce-89a4-1bc49a35755c",
+      "name": "connect-digiluxhub",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "mQHrn7nOcipeHmU0",
+          "name": "connect-digiluxhub"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATY3ZmYAZS0xYzYwLTJjOWYtMDACLTAwCgAuAAADDEa6ZY_1HEq2DKoR5k_upgEAOEeIxSlJjEuTBXkv1kueLwAAAgEMAAAA",
+            "AQMkADAwATY3ZmYAZS0xYzYwLTJjOWYtMDACLTAwCgAuAAADDEa6ZY_1HEq2DKoR5k_upgEAOEeIxSlJjEuTBXkv1kueLwAAAgEbAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1728,
+        0
+      ],
+      "id": "c4db4e22-a756-4eca-a848-113e256fc3b5",
+      "name": "IMAP - shayoylern",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "i7lF9WNwrYPYA6Fh",
+          "name": "shayoylern"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 8
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1376,
+        -416
+      ],
+      "id": "032255f3-62b3-4424-b98b-926d21a62b27",
+      "name": "Merge - Outlook-Digilux Inboxes"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 19) + 15 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1008,
+        -672
+      ],
+      "id": "73704842-be22-465b-90b4-e741f1b7d11d",
+      "name": "Human Delay",
+      "webhookId": "ea7a8752-c6c0-48e7-9464-da2041b3b7d9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.requestBody }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -1200,
+        -64
+      ],
+      "id": "aee216bc-f108-4b1a-8b42-b2517d3c69b9",
+      "name": "Generate AI Reply",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "wHvYBKrcsUefkUz4",
+          "name": "invidia"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiResponse = $json;\nconst originalEmail = $('Check From X1-AI').item.json;\n\nreturn [{\n  json: {\n    ...originalEmail,\n    replyBody: aiResponse.choices[0].message.content\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1056,
+        -176
+      ],
+      "id": "59ecb3ee-c4ee-40db-be5c-a1453d35aabd",
+      "name": "Parse AI Reply"
+    },
+    {
+      "parameters": {
+        "mode": "expression",
+        "numberOutputs": 8,
+        "output": "={{ [\"zikogouu@outlook.com\",\"teremiliravi7@hotmail.com\",\"shayoylern@hotmail.com\",\"venoshhjolney0io@outlook.com\",\"wenlullpoldizhj83@hotmail.com\",\"zgou382@outlook.com\",\"connect@digiluxhub.com\",\"eloviee@outlook.com\"].indexOf((typeof $json.To === 'string' ? $json.To : (typeof $json.to === 'string' ? $json.to : ($json.to && $json.to[0] ? $json.to[0] : ''))).toLowerCase()) }}"
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -912,
+        -384
+      ],
+      "id": "dcfaf016-ca83-4dbf-8e3b-3bf892817d01",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -256,
+        -704
+      ],
+      "id": "dc415477-f151-4651-930e-4432ce31d440",
+      "name": "Send - teremiliravi7",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "mEIIhyYijWiz4pzT",
+          "name": "teremiliravi7"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -128,
+        -592
+      ],
+      "id": "a3a4bb0a-159a-45ca-9dab-1c4046a7a9ca",
+      "name": "Send - shayoylern",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "i7lF9WNwrYPYA6Fh",
+          "name": "shayoylern"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        -464
+      ],
+      "id": "25b3ecc1-ef52-42ce-863c-aec546758b6d",
+      "name": "Send - venoshhjolney0",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "eHRPdLO1iEMy3RfQ",
+          "name": "venoshhjolney0io"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -400
+      ],
+      "id": "e0faf6c0-aa03-4fc8-a465-74cf92b97612",
+      "name": "Send - wenlullpoldizhj83",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "KcLJGknmTLi2bFhN",
+          "name": "IMAP - wenlullpoldizhj83"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1232,
+        -400
+      ],
+      "id": "4781812e-6bb6-40c3-befc-f46b6e58e9b7",
+      "name": "Check From X1-AI"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "24117ce4-65af-48c6-8b35-34ad88516822",
+              "leftValue": "={{ $json.isFromX1AI }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -1280,
+        -592
+      ],
+      "id": "a36849da-5d63-4940-b203-80a58a8bcebb",
+      "name": "isFromX1AI equals true"
+    },
+    {
+      "parameters": {
+        "jsCode": "const context = ($json.bodyPreview || $json.snippet || '').replace(/[\\r\\n\\t]+/g, ' ').substring(0, 300);\nreturn [{\n  json: {\n    requestBody: {\n      model: \"meta/llama-3.1-70b-instruct\",\n      temperature: 0.9,\n      max_tokens: 200,\n      messages: [{\n        role: \"user\",\n        content: `Write a very short casual friendly reply to this email between two people who know each other. 2-3 sentences max. Sound like texting a friend, not a businessperson. Be natural and conversational. AVOID these phrases: \"schedule a time\", \"I'd love to explore\", \"let's connect\", \"would love to chat\", \"apply that to\", \"hop on a call\", \"circle back\", \"sounds great\", \"absolutely\", \"certainly\", \"I'd be happy to\". Every reply must be unique and varied in tone. Email context: ${context}`\n      }]\n    }\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1104,
+        -480
+      ],
+      "id": "0f03fc70-a7f2-49b7-961a-855149d32766",
+      "name": "Prepare AI Request"
+    },
+    {
+      "parameters": {
+        "fromEmail": "connect@digiluxhub.com",
+        "toEmail": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -128
+      ],
+      "id": "9e08592f-05a8-46d9-a8dc-fbd695ca3eb7",
+      "name": "Send - connect",
+      "webhookId": "d70e523c-96b5-4d25-a901-c5ac22f1c455",
+      "credentials": {
+        "smtp": {
+          "id": "cnCVN5KOyXnC7iIw",
+          "name": "codaffee"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -176,
+        -240
+      ],
+      "id": "1fcd6db9-06df-4fc5-87a3-c14839e772e0",
+      "name": "zgouu382",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "keBAxFZbVhR5QCDs",
+          "name": "zgou382@outlook.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "1102bb16-eaa8-46a2-8546-2dc55a0f52f2",
+      "name": "eloviee",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "UBJBM5fbEeqzWVlg",
+          "name": "eloviee@outlook.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATM0MDAAMi1hYjZmLTRkZmUtMDACLTAwCgAuAAAD4eM2kEaVwUO_c_HbazO4-gEAEqq5MWY9LkKG1Ql0f2F8LAAAAgEUAAAA",
+            "AQMkADAwATM0MDAAMi1hYjZmLTRkZmUtMDACLTAwCgAuAAAD4eM2kEaVwUO_c_HbazO4-gEAEqq5MWY9LkKG1Ql0f2F8LAAAAgEMAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2016,
+        -752
+      ],
+      "id": "0ded2850-36c7-4ec7-a68c-7d07758a4663",
+      "name": "zgou382",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "keBAxFZbVhR5QCDs",
+          "name": "zgou382@outlook.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATNiZmYAZS1iNDMyLWY3NDItMDACLTAwCgAuAAADPnv1N-D840aM-Pn88uDe4QEA2eH5O5BRhUWJKB3t-lq09wAAAgETAAAA",
+            "AQMkADAwATNiZmYAZS1iNDMyLWY3NDItMDACLTAwCgAuAAADPnv1N-D840aM-Pn88uDe4QEA2eH5O5BRhUWJKB3t-lq09wAAAgEMAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2032,
+        -576
+      ],
+      "id": "a5727d36-3e9f-4a26-a4d0-72513a524787",
+      "name": "eloviee@",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "UBJBM5fbEeqzWVlg",
+          "name": "eloviee@outlook.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "foldersToInclude": [
+            "AQMkADAwATM0MDAAMi1hMGFjLTdiZDgtMDACLTAwCgAuAAADcLKVy_oJs02AOFLPm3YuNQEArHgQE5YCLU_IhdF2M84jTQAAAgEMAAAA",
+            "AQMkADAwATM0MDAAMi1hMGFjLTdiZDgtMDACLTAwCgAuAAADcLKVy_oJs02AOFLPm3YuNQEArHgQE5YCLU_IhdF2M84jTQAAAgETAAAA"
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlookTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2064,
+        -432
+      ],
+      "id": "3ade99e1-06d9-4d58-8f84-e91e3d7d705b",
+      "name": "zikogouu@",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "UqdP5wUTfCj4hcw2",
+          "name": "zikogouu-outlook"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toRecipients": "={{ typeof $json.From === 'string' ? $json.From : $json.from }}",
+        "subject": "={{ (typeof $json.Subject === 'string' ? $json.Subject : $json.subject).replace(/^(Re: )+/i, 'Re: ') }}",
+        "bodyContent": "={{ $json.replyBody }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 2,
+      "position": [
+        -496,
+        -752
+      ],
+      "id": "a7149c69-e3e3-4f43-98a8-e8944abf38a8",
+      "name": "zikogouu@1",
+      "webhookId": "3c08ebf3-63c5-4a51-a5ab-180b783b39ed",
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "UqdP5wUTfCj4hcw2",
+          "name": "zikogouu-outlook"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "connect-digiluxhub": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IMAP - wenlullpoldizhj83": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "IMAP - teremiliravi7": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "IMAP - venoshhjolney0": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "IMAP - shayoylern": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "Merge - Outlook-Digilux Inboxes": {
+      "main": [
+        [
+          {
+            "node": "Check From X1-AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Human Delay": {
+      "main": [
+        [
+          {
+            "node": "Prepare AI Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate AI Reply": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Reply": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "zikogouu@1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - teremiliravi7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - shayoylern",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - venoshhjolney0",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - wenlullpoldizhj83",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "zgouu382",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - connect",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "eloviee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check From X1-AI": {
+      "main": [
+        [
+          {
+            "node": "isFromX1AI equals true",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "isFromX1AI equals true": {
+      "main": [
+        [
+          {
+            "node": "Human Delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare AI Request": {
+      "main": [
+        [
+          {
+            "node": "Generate AI Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zgou382": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "eloviee@": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "zikogouu@": {
+      "main": [
+        [
+          {
+            "node": "Merge - Outlook-Digilux Inboxes",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "15f835dd-52cb-4460-8e9a-be616c7b7f0f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d78d8971f1a7b3a8ab6daaf80298483a6739908af40a871d49a0b6074e1d2fd2"
+  },
+  "id": "6qSFSjhwTPe8mb2M",
+  "tags": []
+}

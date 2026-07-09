@@ -1,0 +1,911 @@
+{
+  "name": "Auto Reply v2 - Merged",
+  "nodes": [
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1568,
+        -240
+      ],
+      "id": "5de82c27-09b2-446e-b286-205bf3dc2d12",
+      "name": "IMAP - eloviee1",
+      "credentials": {
+        "imap": {
+          "id": "CLsHSya5V7UoxLJr",
+          "name": "eloviee@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1488,
+        -112
+      ],
+      "id": "88b7e4f8-7afc-48d8-bcc3-434bd6b170f0",
+      "name": "IMAP - codaffee",
+      "credentials": {
+        "imap": {
+          "id": "m2JEiiVp70dlxnhu",
+          "name": "codaffee"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1504,
+        64
+      ],
+      "id": "2163d981-ca47-44ec-b068-234c333c90ae",
+      "name": "IMAP - culina012",
+      "credentials": {
+        "imap": {
+          "id": "42GfoWddWNejHNgh",
+          "name": "culina012@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1520,
+        240
+      ],
+      "id": "f365896e-18ac-4f37-a224-57ab486d2325",
+      "name": "IMAP - culinamaroc",
+      "credentials": {
+        "imap": {
+          "id": "hFmlNFUi3hMrCVLi",
+          "name": "culinamaroc@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1360,
+        -480
+      ],
+      "id": "a7342563-9107-4b66-a0a6-7bea6dce81cf",
+      "name": "IMAP - dalaa",
+      "credentials": {
+        "imap": {
+          "id": "hxZPF1ngJ1wEQ2Zj",
+          "name": "dalaa@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1312,
+        -320
+      ],
+      "id": "b776058e-6b76-47c0-aaf6-16b844fe2ea7",
+      "name": "IMAP - digiluxhub",
+      "credentials": {
+        "imap": {
+          "id": "Qu1VVXrd7QIiJeaD",
+          "name": "digiluxhub"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1344,
+        -32
+      ],
+      "id": "018ed3ed-930e-45bd-8b3f-ed92065ae081",
+      "name": "IMAP - jawadoulja",
+      "credentials": {
+        "imap": {
+          "id": "sxFTt7fqiqYUlelH",
+          "name": "jawadoulja"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1280,
+        80
+      ],
+      "id": "2f924109-445a-4855-af70-252ceb92ab2e",
+      "name": "IMAP - purealcooo",
+      "credentials": {
+        "imap": {
+          "id": "OR9FXCP82X0uLKu3",
+          "name": "purealcooo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {
+          "trackLastMessageId": true
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1280,
+        256
+      ],
+      "id": "dcff5722-dd03-4c7c-8cd2-38380491fe86",
+      "name": "IMAP - adiloulja46",
+      "credentials": {
+        "imap": {
+          "id": "T1JvzF2AQoyXtkaL",
+          "name": "adiloulja46@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 10
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -768,
+        -240
+      ],
+      "id": "772c3505-ce94-4567-967d-4ab00499f07f",
+      "name": " Merge - Gmail Inboxes"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "a1e87c51-69ae-4f52-b06a-9f16b6aa23a9",
+              "leftValue": "={{ $json.from.value[0].address }}",
+              "rightValue": "zaki@x1-ai.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "470d0b24-365f-43f8-830c-e4343474f6a4",
+              "leftValue": "={{ $json.from.value[0].address }}",
+              "rightValue": "zakaria@x1-ai.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -544,
+        -96
+      ],
+      "id": "5a77cd66-c356-4495-81e5-164f38455371",
+      "name": "Is From X1-AI"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 36) + 10 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -208,
+        -592
+      ],
+      "id": "aaf436ce-a37c-4773-a838-91113e72235e",
+      "name": "Human Delay",
+      "webhookId": "95daace5-a8d7-4bcb-8626-c6ebe3a15b46"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"meta/llama-3.1-70b-instruct\",\n  \"temperature\": 0.9,\n  \"max_tokens\": 200,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Write a very short casual friendly reply to continue this email conversation. Sound like a real person. 2-3 sentences max. No subject line, just body text. Context: {{ ($json.snippet || $json.bodyPreview || 'General conversation') }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -528,
+        192
+      ],
+      "id": "432ca3e1-917c-40e8-8484-5b1f509285dc",
+      "name": "Generate AI Reply",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "wHvYBKrcsUefkUz4",
+          "name": "invidia"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawContent = $json.choices[0].message.content;\nlet replyText;\ntry {\n  const parsed = JSON.parse(rawContent);\n  replyText = parsed.body || rawContent;\n} catch (e) {\n  replyText = rawContent;\n}\n\nreturn [{\n  json: {\n    to: $('Is From X1-AI').item.json.to,\n    from: $('Is From X1-AI').item.json.from,\n    subject: $('Is From X1-AI').item.json.subject,\n    replyBody: replyText\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        176
+      ],
+      "id": "381b3a1d-e10b-40a8-9f64-567adccada65",
+      "name": "Parse AI Reply"
+    },
+    {
+      "parameters": {
+        "mode": "expression",
+        "numberOutputs": 10,
+        "output": "={{ [\"zikogouu@gmail.com\",\"eloviee1@gmail.com\",\"dalaashop1@gmail.com\",\"culina012@gmail.com\",\"culinamaroc@gmail.com\",\"codaffee@gmail.com\",\"digiluxhub@gmail.com\",\"purealcooo@gmail.com\",\"adiloulja46@gmail.com\",\"jawadjawadoulja@gmail.com\"].indexOf($json.to.value[0].address.toLowerCase()) }}"
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -96,
+        -368
+      ],
+      "id": "06e98579-e67e-46bf-8a49-1290affc9cda",
+      "name": "Route by Account"
+    },
+    {
+      "parameters": {
+        "fromEmail": "eloviee1@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        368,
+        -560
+      ],
+      "id": "aac682af-0fe2-49ab-9474-3801c2ece8a9",
+      "name": "Send - eloviee1",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "AdOc5lFzc6CVqPky",
+          "name": "eloviee@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "dalaashop1@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        672,
+        -464
+      ],
+      "id": "7cfa0011-d336-4ceb-9f42-5c2d7a0aa8fc",
+      "name": "Send - dalaashop1",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "RBnilbvakcPdlGI8",
+          "name": "dalaa@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "culina012@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        528,
+        -368
+      ],
+      "id": "d82a1963-0e63-4c20-8e62-9c5bc96b29e6",
+      "name": "Send - culina012",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "XYZoajGJYhBUgfve",
+          "name": "culina012@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "zikogouu@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        112,
+        -640
+      ],
+      "id": "1bc8f78e-9718-4939-8708-3a43d445e74b",
+      "name": "Send - zikogouu",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "OCUqWf9iHtjXklsx",
+          "name": "zikogouu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "culinamaroc@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        -240
+      ],
+      "id": "c22fc163-3cbd-44d5-b8e5-f8559eadc497",
+      "name": "Send - culinamaroc",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "zCB2EzIeDjZxCe16",
+          "name": "culinamaroc@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "codaffee@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        624,
+        -128
+      ],
+      "id": "301f7952-104e-42b3-ae53-ee998abf6fcc",
+      "name": "Send - codaffee",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "cnCVN5KOyXnC7iIw",
+          "name": "codaffee"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "digiluxhub@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        224,
+        -80
+      ],
+      "id": "1b39e0b4-04e8-4f11-b3d4-d59f9528da3b",
+      "name": "Send - digiluxhub",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "IQIHNQ69rdMjnfcO",
+          "name": "digiluxhub@"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "purealcooo@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        448,
+        32
+      ],
+      "id": "c8faec33-fb8d-4d92-a4cf-fc073bdb78ee",
+      "name": "Send - purealcooo",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "dmm7DDszdhsomj9O",
+          "name": "purealcoo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "adiloulja46@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        672,
+        128
+      ],
+      "id": "f3f1a824-090c-4bdc-b40b-08ad6cfea280",
+      "name": "Send - adiloulja46",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "cQfZmBY9NvRDQOHi",
+          "name": "adiloulja46"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "jawadjawadoulja@gmail.com",
+        "toEmail": "={{ $json.from.value[0].address }}",
+        "subject": "={{ $json.subject.replace(/^(Re: )+/i, 'Re: ') }}",
+        "emailFormat": "text",
+        "text": "={{ $json.replyBody }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        528,
+        224
+      ],
+      "id": "5ec479b5-5347-478b-acc7-bea3d0ae6d13",
+      "name": "Send - jawadjawadoulja",
+      "webhookId": "f53b94f7-fdf9-40af-b5f4-4fd6df8b4cb3",
+      "credentials": {
+        "smtp": {
+          "id": "poVzG5w1nGGKSera",
+          "name": "jawadoulja"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mailbox": "[Gmail]/All Mail",
+        "format": "resolved",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -1552,
+        -560
+      ],
+      "id": "8b2ad31b-4965-41f9-8f9c-768beda7aa43",
+      "name": "IMAP - zikogouu",
+      "credentials": {
+        "imap": {
+          "id": "DYY5hLGzFqSsu5Rq",
+          "name": "zikogouu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const headers = $json.headers || {};\nconst xForwardedFor = headers['x-forwarded-for'] || '';\n\nif (xForwardedFor.includes('support@digiluxhub.com') || \n    xForwardedFor.includes('hi@digiluxhub.com') || \n    xForwardedFor.includes('me@digiluxhub.com')) {\n  return []; // Skip digiluxhub forwards\n}\n\nreturn [{ json: $json }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -336,
+        -112
+      ],
+      "id": "3fdc3261-fb69-427f-bbc3-ebb038b5fd90",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "IMAP - dalaa": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "IMAP - eloviee1": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "IMAP - digiluxhub": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "IMAP - codaffee": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "IMAP - jawadoulja": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "IMAP - culina012": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "IMAP - purealcooo": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "IMAP - culinamaroc": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 8
+          }
+        ]
+      ]
+    },
+    "IMAP - adiloulja46": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 9
+          }
+        ]
+      ]
+    },
+    " Merge - Gmail Inboxes": {
+      "main": [
+        [
+          {
+            "node": "Is From X1-AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is From X1-AI": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Human Delay": {
+      "main": [
+        [
+          {
+            "node": "Generate AI Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate AI Reply": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Reply": {
+      "main": [
+        [
+          {
+            "node": "Route by Account",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Account": {
+      "main": [
+        [
+          {
+            "node": "Send - zikogouu",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - eloviee1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - dalaashop1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - culina012",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - culinamaroc",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - codaffee",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - digiluxhub",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - purealcooo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - adiloulja46",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send - jawadjawadoulja",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IMAP - zikogouu": {
+      "main": [
+        [
+          {
+            "node": " Merge - Gmail Inboxes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Human Delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Africa/Casablanca",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "1ec8e723-b526-406b-aa28-c04b311e4138",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d78d8971f1a7b3a8ab6daaf80298483a6739908af40a871d49a0b6074e1d2fd2"
+  },
+  "id": "m5LbZEfv3JjSh0qv",
+  "tags": []
+}
