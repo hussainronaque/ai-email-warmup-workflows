@@ -1,0 +1,208 @@
+{
+  "name": "Ainvox Thread Reply",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "maxResults": 2,
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [-1600, -240],
+      "id": "b2c3d4e5-0001-4b4b-8b8b-000000000001",
+      "name": "Gmail Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// === POOL LIST ===\n// Full list here is fine — replies only happen to accounts that actually write in.\nconst warmupAccounts = [\n  \"hussain.mustansir24@gmail.com\",\n  \"hmustansir24@gmail.com\",\n  \"hussainronaque24@gmail.com\",\n  \"hm2746153@gmail.com\",\n  \"karavaanfyp@gmail.com\",\n  \"cosmeticsgleams@gmail.com\",\n  \"sakmus05@gmail.com\",\n  \"fatemaah110@gmail.com\",\n  \"hussain@shopbobbys.com\",\n  \"hussain@observeri.com\"\n];\n\nconst fromEmail = ($json.From || \"\").match(/[\\w.-]+@[\\w.-]+/)[0].toLowerCase();\nconst isWarmup = warmupAccounts.includes(fromEmail);\nreturn [{ json: { ...$json, isWarmupAccount: isWarmup } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1360, -240],
+      "id": "b2c3d4e5-0002-4b4b-8b8b-000000000002",
+      "name": "Is Warmup Account?"
+    },
+    {
+      "parameters": {
+        "jsCode": "const subject = $json.Subject || \"\";\n\n// Count how many \"Re:\" appear in subject\nconst reCount = (subject.match(/Re:/gi) || []).length;\n\n// Max 6 replies per thread\nconst shouldReply = reCount < 6;\n\nreturn [{ \n  json: { \n    ...$json, \n    replyCount: reCount,\n    shouldReply: shouldReply\n  } \n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-1120, -240],
+      "id": "b2c3d4e5-0003-4b4b-8b8b-000000000003",
+      "name": "Check Reply Depth"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b2c3d4e5-1001-4b4b-8b8b-000000000001",
+              "leftValue": "={{ $json.isWarmupAccount }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "b2c3d4e5-1002-4b4b-8b8b-000000000002",
+              "leftValue": "={{ $json.shouldReply }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [-880, -240],
+      "id": "b2c3d4e5-0004-4b4b-8b8b-000000000004",
+      "name": "Is Warmup Reply?"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 19) + 15 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [-640, -256],
+      "id": "b2c3d4e5-0005-4b4b-8b8b-000000000005",
+      "name": "Human Delay",
+      "webhookId": "b2c3d4e5-1005-4b4b-8b8b-000000000005"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: \"llama-3.3-70b-versatile\",\n  max_tokens: 200,\n  temperature: 0.9,\n  messages: [{\n    role: \"user\",\n    content: \"Write a 1-2 sentence casual reply. Sound like a friend, not a salesperson. No lists, no tools, no recommendations. Just conversational. Context: \" + ($json.snippet || \"General chat\").substring(0, 100)\n  }]\n}) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [-400, -256],
+      "id": "b2c3d4e5-0006-4b4b-8b8b-000000000006",
+      "name": "Generate Thread Reply",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "fromEmail": "hussain@ainvox-solutions.com",
+        "toEmail": "={{ $('Gmail Trigger').item.json.From.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/)[0] }}",
+        "subject": "={{ $('Gmail Trigger').item.json.Subject.startsWith('Re:') ? $('Gmail Trigger').item.json.Subject : 'Re: ' + $('Gmail Trigger').item.json.Subject }}",
+        "emailFormat": "text",
+        "text": "={{ $('Generate Thread Reply').item.json.choices[0].message.content }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [-160, -256],
+      "id": "b2c3d4e5-0007-4b4b-8b8b-000000000007",
+      "name": "Send Thread Reply - hussain@",
+      "webhookId": "b2c3d4e5-1007-4b4b-8b8b-000000000007"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is Warmup Account?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Warmup Account?": {
+      "main": [
+        [
+          {
+            "node": "Check Reply Depth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Reply Depth": {
+      "main": [
+        [
+          {
+            "node": "Is Warmup Reply?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Warmup Reply?": {
+      "main": [
+        [
+          {
+            "node": "Human Delay",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Human Delay": {
+      "main": [
+        [
+          {
+            "node": "Generate Thread Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Thread Reply": {
+      "main": [
+        [
+          {
+            "node": "Send Thread Reply - hussain@",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Karachi"
+  },
+  "tags": []
+}

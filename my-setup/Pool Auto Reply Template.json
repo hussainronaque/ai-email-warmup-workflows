@@ -1,0 +1,212 @@
+{
+  "name": "Pool Auto Reply - pool1 (duplicate per pool inbox)",
+  "nodes": [
+    {
+      "parameters": {
+        "postProcessAction": "read",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [-1200, -240],
+      "id": "c3d4e5f6-0001-4c4c-8c8c-000000000001",
+      "name": "IMAP - pool1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c3d4e5f6-1001-4c4c-8c8c-000000000001",
+              "leftValue": "={{ $json.from }}",
+              "rightValue": "ainvox-solutions.com",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [-960, -240],
+      "id": "c3d4e5f6-0002-4c4c-8c8c-000000000002",
+      "name": "Is From Ainvox?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Stop replying once thread is deep enough (max 6 \"Re:\")\nconst subject = $json.subject || \"\";\nconst reCount = (subject.match(/Re:/gi) || []).length;\nreturn [{ json: { ...$json, shouldReply: reCount < 6 } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-720, -240],
+      "id": "c3d4e5f6-0003-4c4c-8c8c-000000000003",
+      "name": "Check Reply Depth"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c3d4e5f6-1002-4c4c-8c8c-000000000002",
+              "leftValue": "={{ $json.shouldReply }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [-480, -240],
+      "id": "c3d4e5f6-0004-4c4c-8c8c-000000000004",
+      "name": "Should Reply?"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 25) + 10 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [-240, -256],
+      "id": "c3d4e5f6-0005-4c4c-8c8c-000000000005",
+      "name": "Human Delay",
+      "webhookId": "c3d4e5f6-1005-4c4c-8c8c-000000000005"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: \"llama-3.3-70b-versatile\",\n  max_tokens: 150,\n  temperature: 0.9,\n  messages: [{\n    role: \"user\",\n    content: \"Write a 1-2 sentence casual friendly email reply. Sound like a real person replying to a friend. No lists, no sales talk. Context of email you are replying to: \" + ($json.textPlain || \"general chat\").substring(0, 150)\n  }]\n}) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [0, -256],
+      "id": "c3d4e5f6-0006-4c4c-8c8c-000000000006",
+      "name": "Generate AI Reply",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "fromEmail": "pool1@gmail.com",
+        "toEmail": "hussain@ainvox-solutions.com",
+        "subject": "={{ $('IMAP - pool1').item.json.subject.startsWith('Re:') ? $('IMAP - pool1').item.json.subject : 'Re: ' + $('IMAP - pool1').item.json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $json.choices[0].message.content }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [240, -256],
+      "id": "c3d4e5f6-0007-4c4c-8c8c-000000000007",
+      "name": "Send Reply - pool1",
+      "webhookId": "c3d4e5f6-1007-4c4c-8c8c-000000000007"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "IMAP - pool1": {
+      "main": [
+        [
+          {
+            "node": "Is From Ainvox?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is From Ainvox?": {
+      "main": [
+        [
+          {
+            "node": "Check Reply Depth",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Check Reply Depth": {
+      "main": [
+        [
+          {
+            "node": "Should Reply?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Reply?": {
+      "main": [
+        [
+          {
+            "node": "Human Delay",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Human Delay": {
+      "main": [
+        [
+          {
+            "node": "Generate AI Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate AI Reply": {
+      "main": [
+        [
+          {
+            "node": "Send Reply - pool1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}

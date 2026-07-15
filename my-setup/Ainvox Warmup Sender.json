@@ -1,0 +1,187 @@
+{
+  "name": "Ainvox Warmup Sender",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "=0 0 10 * * 1-6"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [-1152, -448],
+      "id": "a1b2c3d4-0001-4a4a-8a8a-000000000001",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// === POOL LIST ===\n// Week 1: only these 4 active. Each week, uncomment 2-3 more.\nconst warmupAccounts = [\n  \"hussain.mustansir24@gmail.com\",\n  \"hmustansir24@gmail.com\",\n  \"hussainronaque24@gmail.com\",\n  \"hussain@shopbobbys.com\"\n  // Week 2 — uncomment:\n  // \"hm2746153@gmail.com\",\n  // \"karavaanfyp@gmail.com\",\n  // \"hussain@observeri.com\",\n  // Week 3 — uncomment:\n  // \"cosmeticsgleams@gmail.com\",\n  // \"sakmus05@gmail.com\",\n  // \"fatemaah110@gmail.com\"\n];\n\nconst senders = [\n  { name: \"Hussain\", email: \"hussain@ainvox-solutions.com\" }\n];\n\nconst items = [];\nfor (const acc of warmupAccounts) {\n  for (const sender of senders) {\n    items.push({\n      json: {\n        to: acc,\n        from: sender.email,\n        fromName: sender.name\n      }\n    });\n  }\n}\n\n// Shuffle for human-like random order\nfor (let i = items.length - 1; i > 0; i--) {\n  const j = Math.floor(Math.random() * (i + 1));\n  [items[i], items[j]] = [items[j], items[i]];\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-880, -448],
+      "id": "a1b2c3d4-0002-4a4a-8a8a-000000000002",
+      "name": "Build Send List"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [-704, -448],
+      "id": "a1b2c3d4-0003-4a4a-8a8a-000000000003",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"max_tokens\": 200,\n  \"temperature\": 0.9,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Write a very short casual friendly email between two business acquaintances. One of them runs a small AI automation agency. Pick ONE random angle from these: saving time on admin tasks, automating customer replies, using AI for social media, a useful new AI tool they tried, AI for invoicing/accounting, chatbots for e-commerce, or scheduling automation. No sales language, sounds like a real person texting a friend. 2-3 sentences max. Every email must be completely unique - vary the angle, tone, and wording each time.\\n\\nCRITICAL: Your response must be ONLY valid JSON with no markdown, no backticks, no explanation. Output exactly:\\n{\\\"subject\\\":\\\"...\\\",\\\"body\\\":\\\"...\\\"}\\n\\nIMPORTANT: End the body with this exact line on a new line: \\\"If this isn't relevant, reply 'unsubscribe' and I won't contact you again.\\\"\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [-464, -448],
+      "id": "a1b2c3d4-0004-4a4a-8a8a-000000000004",
+      "name": "Generate AI Email",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "try {\n  const aiResponse = JSON.parse($json.choices[0].message.content);\n\n  return [{\n    json: {\n      ...$('Loop Over Items').item.json,\n      subject: aiResponse.subject || \"Quick hello\",\n      body: aiResponse.body || \"No body\"\n    }\n  }];\n\n} catch (e) {\n\n  return [{\n    json: {\n      ...$('Loop Over Items').item.json,\n      subject: \"Quick hello\",\n      body: $json.choices[0].message.content +\n        \"\\n\\nIf this isn't relevant, reply 'unsubscribe' and I won't contact you again.\"\n    }\n  }];\n\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-272, -448],
+      "id": "a1b2c3d4-0005-4a4a-8a8a-000000000005",
+      "name": "Parse AI Email"
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $json.from }}",
+        "toEmail": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $json.body }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [-64, -448],
+      "id": "a1b2c3d4-0006-4a4a-8a8a-000000000006",
+      "name": "Send Warmup Email - hussain@",
+      "webhookId": "a1b2c3d4-1006-4a4a-8a8a-000000000006"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 18) + 2 }}",
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [144, -448],
+      "id": "a1b2c3d4-0007-4a4a-8a8a-000000000007",
+      "name": "Delay Between Emails",
+      "webhookId": "a1b2c3d4-1007-4a4a-8a8a-000000000007"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Build Send List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Send List": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Generate AI Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate AI Email": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Email": {
+      "main": [
+        [
+          {
+            "node": "Send Warmup Email - hussain@",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Warmup Email - hussain@": {
+      "main": [
+        [
+          {
+            "node": "Delay Between Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay Between Emails": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Karachi"
+  },
+  "tags": []
+}
